@@ -2,9 +2,8 @@ name: Daily Auto-Trader
 
 on:
   schedule:
-    # Runs at 19:55 UTC (3:55 PM EDT) Monday through Friday
     - cron: '55 19 * * 1-5'
-  workflow_dispatch: # Gives you a manual "Run" button in GitHub
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -21,6 +20,11 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: '3.10'
+
+    - name: Install Linux Math Libraries
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y liblapack3 libblas3
 
     - name: Install Data Science Packages
       run: |
