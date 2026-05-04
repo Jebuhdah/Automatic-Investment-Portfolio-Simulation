@@ -24,7 +24,7 @@ jobs:
     - name: Install Linux Math Libraries
       run: |
         sudo apt-get update
-        sudo apt-get install -y liblapack3 libblas3
+        sudo apt-get install -y liblapack3 libblas3 libgfortran5
 
     - name: Install Data Science Packages
       run: |
